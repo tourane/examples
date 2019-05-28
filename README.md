@@ -94,6 +94,10 @@ use Tourane\ProxyKit\Adapter;
 
 // Define the tracer object
 $tracer = new Adapter(array(
+  "caching" => array(
+    "enabled" => true,
+    "dir" => dirname(__FILE__ ) . '/tmp/generated/classes'
+  ),
   "logging" => array(
     "file" => array(
       "dir" => dirname(__FILE__ ) . '/log',
