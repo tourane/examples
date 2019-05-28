@@ -38,6 +38,8 @@ composer install
 
 ## Examples
 
+### Logging
+
 Your source code before tracing methods:
 
 ```php
@@ -126,7 +128,7 @@ try {
 }
 ```
 
-### Logging
+Execute the example:
 
 ```shell
 php logging.php
