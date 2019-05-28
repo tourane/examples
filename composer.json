@@ -1,0 +1,7 @@
+{
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "tourane/codetags": "^0.1.2",
+        "tourane/proxykit": "dev-master"
+    }
+}
