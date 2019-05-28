@@ -1,7 +1,6 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
 
-use Tourane\ProxyKit\Adapter;
+// -------------------------------------------------------- Your class & objects
 
 class MongoClient {
   public function find($query, $opts) {
@@ -17,6 +16,12 @@ class MongoClient {
 }
 
 $db = new MongoClient();
+
+// ------------------------- Define the tracer object & Wrap the original object
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Tourane\ProxyKit\Adapter;
 
 // Define the tracer object
 $tracer = new Adapter(array(
@@ -42,7 +47,7 @@ $db = $tracer->wrap($db, array(
   )
 ));
 
-// Keep the source code unchanged
+// ------------------------------------ Keep the following source code unchanged
 
 $result = $db->find(array("type" => "prime", "max" => 15), null);
 printf("find: %s\n", json_encode($result));
@@ -52,4 +57,5 @@ try {
 } catch (Exception $e) {
   $tracer->getLogger()->error("Error: " . $e->getMessage());
 }
+
 ?>
